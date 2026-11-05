@@ -14,7 +14,7 @@ Suppose your instance is running and has a public IP address, but `ssh` cannot c
 
 **Your answer:** Which path did you take in the console (service → page → tab)?
 
-...
+EC2 --> Security Groups --> Select a Security Group
 
 ## 2. Lambda: why didn't my function run?
 
@@ -26,7 +26,7 @@ Suppose you uploaded a new book to your bucket, but several minutes later MongoD
 
 **Your answer:** Which path did you take in the console (service → page → tab)?
 
-...
+...  Lambda --> Event Functions --> Click on any event --> Configuration --> Triggers
 
 ## 3. Lambda: where do I find the error?
 
@@ -38,7 +38,7 @@ Suppose the function did start, but MongoDB still has no document for the book. 
 
 **Your answer:** Which path did you take in the console (service → page → tab)?
 
-...
+...  Cloudwatch --> Logs --> Log Management --> Click on the Log that I want (/aws/lambda/book-analyzer-dev-analyze_new_book) --> Log Streams --> Click on the log stream containing the runs you want to look at.
 
 ## 4. EC2 or Lambda: a backlog or new uploads?
 
@@ -54,4 +54,4 @@ For comparison, typical times in this lab:
 
 **Your answer:**
 
-...
+... For option 1 I would choose an EC2, becuase it would turn off after the 1 time run of 5000 books, and it would be faster in those 5000 (.2 seconds per book compared to 2 for lambda). In option 2 I would choose a lambda function because you do not want to pay the cost of an ec2 function to just sit there and wait or to just be start up, because that takes a while. The lambda function woudl be much more cost effective and quick, as it has the ability to 'cold start' quickly and analyze a book in 2 seconds. 
